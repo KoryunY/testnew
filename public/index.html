@@ -12,24 +12,27 @@
 
     <!-- TON Connect UI Script -->
     <script src="https://unpkg.com/@tonconnect/ui"></script>
-    <script>
-        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: '/public/tonconnect-manifest.json',
-            buttonRootId: 'ton-connect'
-        });
-    </script>
 
     <!-- Custom Connect Function -->
     <script>
-        async function connectToWallet() {
-            const connectedWallet = await tonConnectUI.connectWallet();
-            console.log(connectedWallet);
-            // Do something with connectedWallet if needed
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+                manifestUrl: '/tonconnect-manifest.json',
+                buttonRootId: 'ton-connect'
+            });
 
-        // Call the function
-        connectToWallet().catch(error => {
-            console.error("Error connecting to wallet:", error);
+            async function connectToWallet() {
+                try {
+                    const connectedWallet = await tonConnectUI.connectWallet();
+                    console.log(connectedWallet);
+                    // Do something with connectedWallet if needed
+                } catch (error) {
+                    console.error("Error connecting to wallet:", error);
+                }
+            }
+
+            // Call the function
+            connectToWallet();
         });
     </script>
 </body>
