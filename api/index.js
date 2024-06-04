@@ -8,9 +8,6 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API endpoint example
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Express!' });
-});
 
 // Fallback to serve index.html for any unknown routes
 
