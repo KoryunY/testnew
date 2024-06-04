@@ -16,12 +16,11 @@
     //   .then(data => {
     //     document.getElementById('message').textContent = data.message;
     //   });
-    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      async function connectToWallet() {
+        const connectedWallet = await new TON_CONNECT_UI.TonConnectUI({
         manifestUrl: '/public/tonconnect-manifest.json',
         buttonRootId: 'ton-connect'
-    });
-      async function connectToWallet() {
-        const connectedWallet = await tonConnectUI.connectWallet();
+    }).connectWallet();
         // Do something with connectedWallet if needed
         console.log(connectedWallet);
     }
