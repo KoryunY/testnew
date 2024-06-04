@@ -1,23 +1,5 @@
 {
-    "name": "My Vercel App",
-    "short_name": "VercelApp",
-    "description": "An example app deployed on Vercel with Express and TypeScript",
-    "url": "https://testnew-livid.vercel.app",
-    "icons": [
-      {
-        "src": "/icon-192x192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "/icon-512x512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }
-    ],
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000"
-  }
-  
+  "url": "https://testnew-livid.vercel.app",                       
+  "name": "vercel-test",                     
+  "iconUrl": "https://cdn-icons-png.freepik.com/512/1828/1828108.png"
+}
