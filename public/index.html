@@ -56,7 +56,7 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
       var tonConnectButton = document.getElementById('ton-connect');
 
       tonConnectButton.addEventListener('click', function() {
-        fetch('/connect-wallet', { method: 'POST' })
+        fetch('/connect-wallet', { method: 'GET' })
           .then(function(response) {
             return response.json();
           })
