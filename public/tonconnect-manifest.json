@@ -2,6 +2,7 @@
     "name": "My Vercel App",
     "short_name": "VercelApp",
     "description": "An example app deployed on Vercel with Express and TypeScript",
+    "url": "https://testnew-livid.vercel.app",
     "icons": [
       {
         "src": "/icon-192x192.png",
