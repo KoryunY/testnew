@@ -17,6 +17,21 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
+// Handle POST request for connecting to the wallet
+app.post('/connect-wallet', async (req, res) => {
+  try {
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: '/public/tonconnect-manifest.json',
+      buttonRootId: 'ton-connect'
+  });
+    const connectedWallet = await tonConnectUI.connectWallet();
+    res.json(connectedWallet);
+  } catch (error) {
+    console.error('Error connecting to wallet:', error);
+    res.status(500).json({ error: 'Error connecting to wallet' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
