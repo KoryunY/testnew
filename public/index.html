@@ -9,26 +9,31 @@
 <body>
   <h1>Hello, Vercel!</h1>
   <p id="message">Loading message...</p>
-  <div id="ton-connect" style="width: 100px; height: 100px;background-color: black;"></div>
+  <div id="ton-connect" style="width: 100px; height: 100px;background-color: black;" onclick="connectToWallet().catch(err=>console.log(err))"></div>
   <script>
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: '/public/tonconnect-manifest.json',
+        buttonRootId: 'ton-connect'
+    });
+    async function connectToWallet() {
+        const connectedWallet = await tonConnectUI.connectWallet();
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
+    }
+  </script>
+  <!-- <script>
     // fetch('/api/hello')
     //   .then(response => response.json())
     //   .then(data => {
     //     document.getElementById('message').textContent = data.message;
     //   });
-      async function connectToWallet() {
-        const connectedWallet = await new TON_CONNECT_UI.TonConnectUI({
-        manifestUrl: '/public/tonconnect-manifest.json',
-        buttonRootId: 'ton-connect'
-    }).connectWallet();
-        // Do something with connectedWallet if needed
-        console.log(connectedWallet);
-    }
+    
+      
 
     // Call the function
-    connectToWallet().catch(error => {
-        console.error("Error connecting to wallet:", error);
-    });
-  </script>
+    // connectToWallet().catch(error => {
+    //     console.error("Error connecting to wallet:", error);
+    // });
+  </script> -->
 </body>
 </html>
