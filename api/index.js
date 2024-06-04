@@ -13,9 +13,7 @@ app.get('/api/hello', (req, res) => {
 });
 
 // Fallback to serve index.html for any unknown routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+
 
 // Handle POST request for connecting to the wallet
 app.post('/connect-wallet', async (req, res) => {
@@ -30,6 +28,10 @@ app.post('/connect-wallet', async (req, res) => {
     console.error('Error connecting to wallet:', error);
     res.status(500).json({ error: 'Error connecting to wallet' });
   }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(port, () => {
