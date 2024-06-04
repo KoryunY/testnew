@@ -1,74 +1,36 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Vercel App</title>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@tonconnect/ui/dist/ton-connect-ui.min.js"></script> -->
-</head>
-<body>
-  <h1>Hello, Vercel!</h1>
-  <p id="message">Loading message....7687</p>
-  <div id="ton-connect" style="width: 100px; height: 100px;background-color: black;" onclick="connectToWallet().catch(err=>console.log(err))"></div>
-  <script>
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-        manifestUrl: '/public/tonconnect-manifest.json',
-        buttonRootId: 'ton-connect'
-    });
-    async function connectToWallet() {
-        const connectedWallet = await tonConnectUI.connectWallet();
-        // Do something with connectedWallet if needed
-        console.log(connectedWallet);
-    }
-  </script>
-  <!-- <script>
-    // fetch('/api/hello')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     document.getElementById('message').textContent = data.message;
-    //   });
-    
-      
-
-    // Call the function
-    // connectToWallet().catch(error => {
-    //     console.error("Error connecting to wallet:", error);
-    // });
-  </script> -->
-</body>
-</html> -->
-
+<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Vercel App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TON Connect Example</title>
 </head>
 <body>
-  <h1>Hello, Vercel!</h1>
-  <p id="message">Loading message...</p>
-  <button id="ton-connect">Connect to Wallet</button>
-  
-  <script>
-    // JavaScript code goes here
-    document.addEventListener('DOMContentLoaded', function() {
-      var tonConnectButton = document.getElementById('ton-connect');
+    <h1>TON Connect Example</h1>
+    <div id="ton-connect"></div>
 
-      tonConnectButton.addEventListener('click', function() {
-        fetch('/connect-wallet', { method: 'GET' })
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(connectedWallet) {
+    <!-- TON Connect UI Script -->
+    <script src="https://unpkg.com/@tonconnect/ui"></script>
+    <script>
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: '/public/tonconnect-manifest.json',
+            buttonRootId: 'ton-connect'
+        });
+    </script>
+
+    <!-- Custom Connect Function -->
+    <script>
+        async function connectToWallet() {
+            const connectedWallet = await tonConnectUI.connectWallet();
             console.log(connectedWallet);
-          })
-          .catch(function(error) {
-            console.error('Error connecting to wallet:', error);
-          });
-      });
-    });
-  </script>
+            // Do something with connectedWallet if needed
+        }
+
+        // Call the function
+        connectToWallet().catch(error => {
+            console.error("Error connecting to wallet:", error);
+        });
+    </script>
 </body>
 </html>
-
