@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Handle POST request for connecting to the wallet
-app.post('/connect-wallet', async (req, res) => {
+app.get('/connect-wallet', async (req, res) => {
   try {
     res.json({msg:"scs"});
   //   const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
