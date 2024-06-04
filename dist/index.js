@@ -9,6 +9,7 @@ const app = (0, express_1.default)();
 const port = 3000;
 // Middleware to serve static files from the public directory
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
+app.use(express_1.default.static(path_1.default.join(__dirname, '../')));
 // API endpoint example
 app.get('/api/hello', (req, res) => {
     res.json({ message: 'Hello from Express with TypeScript!' });
